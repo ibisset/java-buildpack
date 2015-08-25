@@ -179,7 +179,8 @@ module JavaBuildpack
     def no_container
       fail 'No container can run this application. Please ensure that you’ve pushed a valid JVM artifact or ' \
            'artifacts using the -p command line argument or path manifest entry. Information about valid JVM ' \
-           'artifacts can be found at https://github.com/cloudfoundry/java-buildpack#additional-documentation. '
+           'artifacts can be found at https://github.com/cloudfoundry/java-buildpack#additional-documentation. ' \
+           'When pushing MDW assets, ensure that you have a relative directory 'workflow/assets' that contains your assets. '
     end
 
     def require_component(component)
