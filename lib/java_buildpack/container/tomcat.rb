@@ -61,13 +61,17 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::ModularComponent#supports?)
       def supports?
-        web_inf? && !JavaBuildpack::Util::JavaMainUtils.main_class(@application)
+        web_inf? && !JavaBuildpack::Util::JavaMainUtils.main_class(@application) && mdw_assets?
       end
 
       private
 
       def web_inf?
         (@application.root + 'WEB-INF').exist?
+      end
+      
+      def mdw_assets?
+        (@application.root + 'workflow/assets').exist?
       end
 
     end
