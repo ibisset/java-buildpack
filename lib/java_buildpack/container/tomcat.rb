@@ -61,7 +61,7 @@ module JavaBuildpack
 
       # (see JavaBuildpack::Component::ModularComponent#supports?)
       def supports?
-        !JavaBuildpack::Util::JavaMainUtils.main_class(@application) && mdw_assets?
+        web_inf? && !JavaBuildpack::Util::JavaMainUtils.main_class(@application)
       end
 
       private
